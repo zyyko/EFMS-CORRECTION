@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import Authentification from "./Components/Authentification";
+import Historique from "./Components/Historique";
+import Chambres from "./Components/Chambres";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import Menu from "./Components/Menu";
+import Reservation from "./Components/Reservation";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Menu />
+      <Routes>
+        <Route index element={<Authentification />} />
+        <Route path={"/historique/:id"} element={<Historique />} />
+        <Route path={"/chambres/:id"} element={<Chambres />} />
+        <Route
+          path={"/reservation/:id/:id_chambre"}
+          element={<Reservation />}
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
