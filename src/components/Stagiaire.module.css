@@ -1,0 +1,10 @@
+.container {
+  border: 1px solid;
+  padding: 15px;
+  width: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex: 0 0 calc(20% - 20px); /* This sets the width of each item to be 25% of the container width minus some spacing */
+  margin: 10px; /* Adjust margin as needed */
+}
