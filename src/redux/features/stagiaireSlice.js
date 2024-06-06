@@ -36,14 +36,30 @@ const stagiaireSlice = createSlice({
     },
 
     deleteStagiaire: (state, action) => {
+      console.log(action.payload);
       return {
+        ...state,
         stagiaires: state.stagiaires.filter(
-          (stagiaire) => stagiaire.nom === action.payload
+          (stagiaire) => stagiaire.nom !== action.payload.nom
         ),
+      };
+    },
+
+    updateStagiaire: (state, action) => {
+      return {
+        ...state,
+        stagiaires: state.stagiaires.map((salarie) => {
+          if (salarie.nom === action.payload.nom) {
+            return { ...salarie, ...action.payload };
+          }
+
+          return salarie;
+        }),
       };
     },
   },
 });
 
-export const { addStagiaire, deleteStagiaire } = stagiaireSlice.actions;
+export const { addStagiaire, deleteStagiaire, updateStagiaire } =
+  stagiaireSlice.actions;
 export default stagiaireSlice.reducer;

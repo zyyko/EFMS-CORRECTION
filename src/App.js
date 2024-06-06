@@ -6,6 +6,7 @@ import DetailStagiaire from "./components/DetailStagiaire";
 import AddStagiaire from "./components/AddStagiaire";
 import Header from "./components/Header";
 import StagiairesApi from "./components/StagiairesApi";
+import EditStagiaire from "./components/EditStagiaire";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<ListStagiaire />} />
           <Route path="/add" element={<AddStagiaire />} />
           <Route path="/:nom" element={<DetailStagiaire />} />
+          <Route path="/edit/:nom" element={<EditStagiaire />} />
           <Route path="/stagiairesApi" element={<StagiairesApi />} />
         </Routes>
       </BrowserRouter>

@@ -1,13 +1,14 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { deleteStagiaire } from "../redux/features/stagiaireSlice";
 
 export default function DetailStagiaire() {
   const { nom } = useParams();
-  console.log(nom);
   const stagiaire = useSelector((state) =>
     state.stagiaires.stagiaires.find((stagiaire) => stagiaire.nom === nom)
   );
+  useSelector((state) => console.log(state));
 
   return (
     <div>
